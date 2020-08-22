@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "Nashville";
+  src: url('./assets/fonts/Nashville.TTF');
+}
+
+@font-face {
+  font-family: "TrajanPro";
+  src: url('./assets/fonts/TrajanPro-Bold.otf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  font-family: 'TrajanPro';
+  color: white;
+  text-align: center;
+}
+
+body {
+  background-image: url('./assets/images/Fondo.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4 h5, h6 {
+  font-family: 'Nashville';
+  color: #dc3545;
+}
+
+@media screen and (max-width: 1280px) {
+  body {
+    background-size: cover;
+  }
+}

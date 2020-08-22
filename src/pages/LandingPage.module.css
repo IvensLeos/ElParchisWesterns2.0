@@ -1,0 +1,55 @@
+.RootContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.Logo {
+  height: 100vh;
+
+  background-image: url('../assets/images/Logo.png');
+  background-size: 100% 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.LogginFormContainer {
+  height: 100vh;
+
+  padding: 35px;
+
+  display: grid;
+  grid-template-rows: 1fr 4fr 1fr;
+}
+
+.FormContainer {
+  padding: 25px;
+
+  background-image: url('../assets/images/Rectangulo.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.LogginForm {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+
+  margin-top: 3%;
+}
+
+.valid-feedback, .invalid-feedback {
+  font-size: 12px;
+}
+
+@media screen and (max-width: 1280px) {
+  .RootContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .Logo {
+    background-size: 80% 60%;
+  }
+
+  .LogginForm {
+    margin-top: 1%;
+  }
+}
