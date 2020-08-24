@@ -1,7 +1,7 @@
 import Express from 'express'
 import Session from 'express-session'
 import Path from 'path'
-import UUID from 'uuid/dist/v4'
+import { uuid as UUID } from 'uuidv4'
 import Passport from 'passport'
 import { GraphQLLocalStrategy, buildContext } from 'graphql-passport'
 import { ApolloServer } from 'apollo-server-express'
@@ -11,7 +11,7 @@ import typeDefs from './typeDefs'
 import resolvers from './resolvers'
 
 const PORT = process.env.PORT || 3001
-const SESSION_SECRET = 'Wonderfull Code.'
+const SESSION_SECRET = process.env.SESSION_SECRET || 'Wonderfull Code.'
 
 // Passport Config
 Passport.use(
@@ -49,7 +49,6 @@ App.use(Express.static(Path.join(__dirname, '../build/')))
 App.use(Passport.initialize())
 App.use(Passport.session())
 
-
 // ApolloServer Init
 const Server = new ApolloServer({
   typeDefs, 
@@ -64,6 +63,7 @@ const Server = new ApolloServer({
 
 Server.applyMiddleware({ app: App })
 
+// Api Server Route For React Production Build
 App.get('*', (req, res) => {
   res.sendFile(Path.join(__dirname, '../build/index.html'))
 })

@@ -1,4 +1,4 @@
-import uuid from 'uuid/dist/v4'
+import { uuid } from "uuidv4"
 
 const resolvers = {
   Query: {
