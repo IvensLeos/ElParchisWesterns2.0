@@ -15,9 +15,6 @@ import * as serviceWorker from './serviceWorker'
 const Client = new ApolloClient({ uri: '/graphql' })
 
 ReactDOM.render(
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>
   <ApolloProvider client={Client}>
     <ContextProvider>
       <App />

@@ -3,16 +3,39 @@ import React, { useState } from 'react'
 import { useAppContext } from '../../context/Context'
 import { request } from 'graphql-request'
 
-import { compareSync } from 'bcryptjs'
+// import { compareSync } from 'bcryptjs'
 
 const LogginForm = () => {
 
   const [Loggin, SetLoggin] = useState(true)
 
+  const { User, setUser } = useAppContext()
+
   function HandleSubmit(e) {
     e.preventDefault()
     if (Loggin) {
-      console.log('Loggin')
+      let Query = `
+        mutation {
+          login (email: "roy@trenneman.com", password: "imroy") {
+            user {
+              id
+              firstName
+              lastName
+              email
+            }
+          }
+        }
+      `
+      request('/graphql', Query).then(data => {
+        const { login } = data || ''
+        // const { login, error, errors } = data || ''
+        if (login) {
+          setUser({ ...User, Username: login.user.email })
+        }
+      })
+    }
+    else {
+      console.log('Register')
       let Query = `
         {
           currentUser {
@@ -20,21 +43,6 @@ const LogginForm = () => {
             firstName
             lastName
             email
-          }
-        }
-      `
-      request('/graphql', Query).then(data => {
-        console.log(data)
-      })
-    }
-    else {
-      console.log('Register')
-      let Query = `
-        mutation {
-          login (email: "roy@trenneman.com", password: "imroy") {
-            user {
-              email
-            }
           }
         }
       `

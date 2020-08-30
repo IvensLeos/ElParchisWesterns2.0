@@ -4,6 +4,8 @@ import { useAppContext } from './context/Context'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 
 import LandingPage from './pages/LandingPage'
+import DashboardPage from './pages/DashboardPage'
+import PlayzonePage from './pages/PlayzonePage'
 
 const App = () => {
 
@@ -14,10 +16,10 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" render={() => <Redirect to="/dashboard" />} />
-        <Route exact path="/dashboard" render={() => <h1>Dashboard</h1>} />
-        <Route exact path="/playzone" render={() => <h1>Playzone</h1>} />
+        <Route exact path="/dashboard" render={() => <DashboardPage />} />
+        <Route exact path="/playzone" render={() => <PlayzonePage />} />
 
-        <Route render={() => <h2>Uuups... No Hemos Encontrado La Pagina.</h2>} />
+        <Route render={() => <p>Uuups... No Hemos Encontrado La Pagina.</p>} />
       </Switch>
     </BrowserRouter>
   )
@@ -27,9 +29,9 @@ const App = () => {
       <Switch>
         <Route exact path="/" render={() => <LandingPage />} />
 
-        <Route exact path="/playzone" render={() => <h1>Playzone</h1>} />
+        <Route exact path="/playzone" render={() => <PlayzonePage />} />
 
-        <Route render={() => <h2>Uuups... No Hemos Encontrado La Pagina.</h2>} />
+        <Route render={() => <p>Uuups... No Hemos Encontrado La Pagina.</p>} />
       </Switch>
     </BrowserRouter>
   )

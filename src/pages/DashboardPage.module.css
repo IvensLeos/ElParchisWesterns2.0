@@ -1,0 +1,46 @@
+.RootContainer {
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+
+  align-items: center;
+}
+
+.TabsContainer {
+  height: 80vh;
+
+  background-image: url('../assets/images/Rectangulo.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  padding-left: 3.5px;
+  padding-right: 3.5px;
+}
+
+.NavTabsContainer {
+  height: 70vh;
+
+  display: grid;
+  grid-template-columns: 1fr;
+
+  align-items: center;
+}
+
+.DefaultProfile1 {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.Level {
+  color: darkcyan;
+  font-size: 18px;
+}
+
+.Biography {
+  margin-top: 2%;
+  max-width: 95%;
+  margin-left: 2.5%;
+  color: grey;
+}

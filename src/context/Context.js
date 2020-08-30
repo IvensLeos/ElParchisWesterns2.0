@@ -15,7 +15,7 @@ export function ContextProvider(props) {
     return ({ User, setUser, Session, setSession })
   }, [User, Session])
 
-  function FindUser() {
+  useEffect(() => {
     let Query = `
         {
           currentUser {
@@ -28,18 +28,17 @@ export function ContextProvider(props) {
       `
     request('/graphql', Query).then(data => {
       const { currentUser } = data || ''
-      currentUser.email && setUser({...User, Username: currentUser.email })
+      currentUser && currentUser.email && setUser({ ...User, Username: currentUser.email })
     })
-  }
+  }, [])
 
   useEffect(() => {
     //if (!User.Username) return <Redirect to="/" />
-    console.log(`Me Ejecute! : ${User.Username}`)
-    FindUser()
+    console.log(User)
     return () => {
       //console.log("Prev: " + JSON.stringify(User))
     }
-  }, [User, Session])
+  }, [User])
 
   return <AppContext.Provider value={Value} {...props} />
 }

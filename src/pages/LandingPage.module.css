@@ -36,10 +36,6 @@
   margin-top: 3%;
 }
 
-.valid-feedback, .invalid-feedback {
-  font-size: 12px;
-}
-
 @media screen and (max-width: 1280px) {
   .RootContainer {
     grid-template-columns: 1fr;
